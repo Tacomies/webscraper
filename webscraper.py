@@ -38,7 +38,7 @@ class YouTube(Query):
     def parse(self):
         self.url = f"https://www.youtube.com/results?search_query={self.search.replace(' ', '+')}"
 
-class Amazon(Query):
+class dkalsdklawkfAmazon(Query): #Bypass scraping ban somehow
     def __init__(self, search: str):
         super().__init__(search)
     
@@ -46,7 +46,7 @@ class Amazon(Query):
         return super().get_html()
     
     def scrape(self):
-        r = r'href="\/([\d\w\/=?-]+)\&'
+        r = r'a-link-normal s-no-outline" (href="([\d\w\\\/\_\&\$\?\=\%\;\-])+)">'
         self.results += (re.findall(r, self.html))[:5]
     
     def info(self):
